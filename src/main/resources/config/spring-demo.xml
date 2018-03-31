@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://www.dongnaoedu.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	   http://www.dongnaoedu.com/schema/dubbo
+	   http://www.dongnaoedu.com/schema/dubbo.xsd"
+       default-lazy-init="true">
+       
+    <bean id="userService" class="com.demo.dubbo.module.user.service.impl.UserServiceImpl" />
+
+	<dubbo:service interface="com.demo.dubbo.module.user.service.UserService" ref="userService">  </dubbo:service>
+	
+	<dubbo:protocol name="http" host="localhost" port="8806" ></dubbo:protocol>
+</beans>
